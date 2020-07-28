@@ -1,0 +1,32 @@
+.outer-container{
+	padding:5em;
+	background-color:#fff;
+}
+
+.services{
+	background-color:#f8f9fa;
+	min-height:390px;
+}
+
+.card-body > p{
+	padding:10px 0px;
+	margin-bottom:0.2em;
+}
+
+.card-body > img{
+	width:100%;
+    min-height:192px;
+}
+
+.register{
+	background: linear-gradient(#ff9968, #ff5e63)  no-repeat;
+}
+
+.form-container{
+	background-color: #FFF;
+	padding:3em;
+}
+
+footer{
+	padding:2em 0em;
+}

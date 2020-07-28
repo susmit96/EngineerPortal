@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>エンジニアの登録</title>
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/RegisterForm.css">
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+		<form th:action="@{/registerForm/send}" th:object="${registerFormPostModel}" method="post" class="form-container">
+		  <h1>登録フォーム</h1>
+		  <p><span class="text-danger"><strong>※</strong></span>は必須項目です。
+			<div class="form-group">
+				<label for="name">氏名<span class="text-danger"><strong>※</strong></span></label>
+				<input type="text" th:field="*{name}" class="form-control">
+				<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
+			</div>
+			<div class="form-group">
+				<label for="address">住所<span class="text-danger"><strong>※</strong></span></label>
+				<input type="text" th:field="*{address}" id="address" name="user_address" class="form-control">
+				<span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address error</span>
+			</div>
+			<div class="form-group">
+				<label for="email">メールアドレス<span class="text-danger"><strong>※</strong></span></label>
+				<input type="email" th:field="*{email}" id="email" name="user_email" class="form-control">
+				<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</span>
+			</div>
+			<div class="form-group">
+				<label for="phoneNumber">電話番号<span class="text-danger"><strong>※</strong></span></label>
+				<input type="tel" max=10 th:field="*{phoneNumber}" id="phoneNumber" name="user_phoneNumber" class="form-control">
+				<span class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</span>
+			</div>
+			<div class="form-group">
+			   	<label for="skill">スキル<span class="text-danger"><strong>※</strong></span></label>
+				<input type="text" th:field="*{skill}" id="skill" name="user_skill" class="form-control">
+				<span class="text-danger" th:if="${#fields.hasErrors('skill')}" th:errors="*{skill}">skill error</span>
+			</div>
+			<div class="form-group">
+				<label for="file-upload">スキルシートアップロード<span class="text-danger"><strong>※</strong></span></label>
+				<input type="file" id="file-upload" class="form-control-file">
+			</div>
+			<div class="form-group">
+				<label for="comment">コメント</label>
+				<textarea id="comment" th:field="*{comment}" class="form-control"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">送信</button>
+		</form>
+    </div>
+</body>
+</html>

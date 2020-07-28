@@ -1,0 +1,37 @@
+.avatar-outer img{
+	width:100%;
+}
+
+.avatar-outer{
+	padding:20px 20px 0px;
+}
+
+.engineer-about{
+	list-style: none;
+	padding-left:0;
+}
+
+.container-inner-wrapper{
+	padding-top: 6.2em;
+}
+
+.engineer-about li{
+	padding-bottom:10px;
+}
+
+.info-value{
+	float:right;
+	width:67%
+}
+
+a{
+	color: #32CD32;
+}
+
+.fa, .fas{
+	padding-right:10px;
+}
+
+.row > h4, .row > h5{
+	margin-bottom:0.9em;
+}

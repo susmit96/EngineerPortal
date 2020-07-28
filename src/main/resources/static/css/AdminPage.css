@@ -1,0 +1,55 @@
+.form-inline > .form-group, .form-inline > .form-group label {
+	margin-right:1em;
+}
+
+.list-wrapper{
+	padding:5em;
+}
+
+
+.list-wrapper .form-outer{
+	margin-bottom:5em;
+}
+
+.avatar-card{
+	width: 14em;
+}
+.avatar-image{
+	margin:40px;
+}
+
+.avatar-card .avatar-image img{
+	width:150px;
+	height:150px;
+	position: absolute;
+	top:-75px;
+	left:36px;
+	border-radius:50%;
+}
+
+.avatar-card .card-title{
+	font-size:0.9em;
+}
+
+.avatar-card .card-text{
+	font-size:0.8em;
+}
+
+.avatar-card .card-body .fa{
+	font-size:2em;
+}
+
+.avatar-card .card-body .file-icon{
+	margin-top:2em;
+}
+
+.img-thumbnail{
+	border-radius: 1.25rem!important;
+}
+
+.pagination{
+	border-radius:50px;
+	background-color:#fff;
+}
+
+.container-fluid{background-color:#E5E5E5;}

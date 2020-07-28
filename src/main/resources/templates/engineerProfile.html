@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>管理者ページ</title>
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/engineerProfile.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/bootstrap/bootstrap.js"></script>
+<script src="/js/engineerProfile.js"></script>
+</head>
+<body style="background: #F0F0F0 !important">
+	<div class="container-fluid">
+		<header>
+				<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-dark">
+						<div class="navbar-collapse collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mr-auto">
+								<li class="nav-item">
+									<a class="nav-link text-white" href="#">SYSENC</a>
+								</li>
+							</ul>
+							<ul class="navbar-nav ml-auto">
+								<li class="nav-item">
+									<a class="nav-link" href ="#"><img class="img-thumbnail" src="/img/avatar-boy.png" height="32px" width="32px"><span class="text-white">&nbsp;佐藤</span></a>
+								</li>
+							</ul>
+						</div>
+				</nav>
+		</header>
+
+		<div class="container-inner-wrapper">
+			<th:block th:each="ei:${engineerInformationViewModel.engineerInfo}">
+			<div class="row">
+				<div class="col-2">
+						<div class="card">
+							<div class="avatar-outer" th:if="${ei.gender == '男'}">
+								<img src="/img/avatar-boy.png">
+							</div>
+							<div class="avatar-outer" th:if="${ei.gender == '女'}">
+								<img src="/img/avatar-girl.png">
+							</div>
+							<div class="card-body">
+									<div class="card-title">[[${ei.fullName}]]</div>
+									<p class="card-text">登録日: [[${ei.registerDate}]]</p>
+							</div>
+						</div>
+				</div>
+				<div class="col-9">
+					   <div class="row">
+							<h4 class="col-12"><i class="fas fa-user"></i>About</h4>
+							<a href="#" id="editEngineerProfile">編集</a>
+							<div id="show"></div>
+							<div class="col-6">
+								<ul class="engineer-about">
+									<li>名前
+									<span class="info-value">[[${ei.fullName}]]</span>
+									</li>
+									<li>メールアドレス
+										<span class="info-value"><a th:href="@{mailto:}+${ei.mailAddress}">[[${ei.mailAddress}]]</a></span>
+									</li>
+									<li>スキル
+										<span class="info-value">[[${ei.skill}]]</span>
+									</li>
+									<li>電話番号
+										<span class="info-value"><a href="tel:070-1234-1233">[[${ei.phoneNumber}]]</a></span>
+									</li>
+									<li>住所
+										<span class="info-value">[[${ei.address}]]</span>
+									</li>
+									<li>コメント
+										<span class="info-value">[[${ei.comment}]]</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<hr></hr>
+						<div class="row">
+							<h5 class="col-12"><i class="fas fa-file"></i>スキルシート</h5>
+							<img src="/img/skills.png" width="300px" height="300px">
+						</div>
+				</div>
+			</div>
+			</th:block>
+		</div>
+	</div>
+</body>
+</html>

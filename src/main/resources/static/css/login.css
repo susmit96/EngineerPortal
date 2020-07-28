@@ -1,0 +1,46 @@
+.form-wrapper{
+	background-color : #2A2D33;
+	width:400px;
+	position:fixed;
+	left:40%;
+	top:20%;
+	border-radius:50px;
+	color:#fff;
+	z-index:10000;
+}
+
+.form-heading{
+	padding-bottom:10px;
+	border-bottom: 4px solid #fff;
+	margin:60px 0px 29px;
+	font-size:24px;
+}
+
+.overlay{
+	position:fixed;
+	background-color:#19CC8B;
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:9999;
+}
+
+.text-wrapper{
+	margin: 30px;
+}
+
+form > div {
+	margin:30px 0px;
+}
+
+form > div > label{
+	display:block;
+}
+
+form > div > input {
+	width:100%;
+	border-radius:10px;
+	height:40px;
+}

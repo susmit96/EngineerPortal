@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymleaf.org/thymleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+<title>sysenc</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+</head>
+<body>
+	<header>
+			<nav class="navbar navbar-dark bg-dark">
+				<div class="container">
+					<div class="container d-flex justify-content-between">
+						<a class = "navbar-brand" th:href="@{/}">SYSENC</a>
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link  text-white" th:href="@{/adminPage}">管理者ログイン</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</nav>
+	</header>
+
+    <main role="main">
+    	<section class="outer-container text-center">
+    		<div class="container">
+				<h1>エンジニア</h1>
+				<p>エンジニア登録後、スキルに合った案件をご紹介させていただきます。<br/>
+				   まずは下記のリンクにて登録してください。
+				</p>
+				<a class="btn bg-success text-white" th:href="@{/#register-form}">エンジニア登録</a>
+    		</div>
+    	</section>
+    	<div class="services py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-body">
+								<img src="/img/aboutCompany.png">
+								<p><span class="font-weight-bold">会社概要</span></p>
+								<div class="d-flex">余計多年に招待方はむしろその学習たたばかりに好まばならならでは反駁ならでしょたが、どうにも申し込んたんないな個人その見込み私か関
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-body">
+								<img src="/img/jobIntroduction.png">
+								<p><span class="font-weight-bold">事業紹介</span></p>
+								<div class="d-flex">兄にしませものはついほかがいよいよなでで。よほど大森さんで話主義ずいぶん使用でなっない個人その見込み私か関係がというお記憶ましたですたと
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-body">
+								<img th:src="@{/img/jobInformation.png}">
+								<p><span class="font-weight-bold">求人情報</span></p>
+								<div class="d-flex">その十一月は私か自我事情に留めて、嘉納さんののを靄の私からあたかもご破壊と尽すが何文学とご意味にするようにもうご附随にするたなで
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+
+    	<div class="register py-5">
+    		<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+					   <div class="form-container">
+							<form th:action="@{/register/send}" th:object="${indexPostModel}" method="post" id="register-form">
+							  <h1>登録フォーム</h1>
+							  <p><span class="text-danger"><strong>※</strong></span>は必須項目です。
+								<div class="form-group">
+									<label for="name">氏名<span class="text-danger"><strong>※</strong></span></label>
+									<input type="text" th:field="*{name}" id="name" name="user_name" class="form-control">
+									<span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
+								</div>
+								<div class="form-group">
+									<label for="gender">性別</label>
+									<select class="form-control" id="gender">
+										<option>男性</option>
+										<option>女性</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="address">住所<span class="text-danger"><strong>※</strong></span></label>
+									<input type="text" th:field="*{address}" id="address" name="user_address" class="form-control">
+									<span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address error</span>
+								</div>
+								<div class="form-group">
+									<label for="email">メールアドレス<span class="text-danger"><strong>※</strong></span></label>
+									<input type="email" th:field="*{email}" id="email" name="user_email" class="form-control">
+									<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error</span>
+								</div>
+								<div class="form-group">
+									<label for="phoneNumber">電話番号<span class="text-danger"><strong>※</strong></span></label>
+									<input type="tel" max=10 th:field="*{phoneNumber}" id="phoneNumber" name="user_phoneNumber" class="form-control">
+									<span class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</span>
+								</div>
+								<div class="form-group">
+								   	<label for="skill">スキル<span class="text-danger"><strong>※</strong></span></label>
+									<input type="text" th:field="*{skill}" id="skill" name="user_skill" class="form-control">
+									<span class="text-danger" th:if="${#fields.hasErrors('skill')}" th:errors="*{skill}">skill error</span>
+								</div>
+								<div class="form-group">
+									<label for="file-upload">スキルシートアップロード<span class="text-danger"><strong>※</strong></span></label>
+									<input type="file" id="file-upload" class="form-control-file">
+								</div>
+								<div class="form-group">
+									<label for="comment">コメント</label>
+									<textarea id="comment" th:field="*{comment}" class="form-control"></textarea>
+								</div>
+								<button type="submit" class="btn btn-success">送信</button>
+							</form>
+						</div>
+					</div>
+				</div>
+    		</div>
+    	</div>
+    </main>
+
+	<footer>
+		<div class="container">
+			<p>
+			   Copyright(C) SYSENC AllRightsReserved.
+			</p>
+		</div>
+	</footer>
+
+
+</body>
+</html>

@@ -6,17 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import com.sysenc.portal.services.IndexService;
 import com.sysenc.portal.view.IndexPostModel;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/")
 public class IndexController {
 
 	@Autowired
@@ -32,13 +28,12 @@ public class IndexController {
 		return "index";
 	}
 
-	@PostMapping("register/send")
-	public String send(@Valid @ModelAttribute("indexPostModel")IndexPostModel indexPostModel,BindingResult bindingResult) {
+	@PostMapping("/")
+	public String send(@Valid @ModelAttribute("indexPostModel")IndexPostModel indexPostModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if(bindingResult.hasErrors()) {
 			return "index";
 		}
 		indexService.insertRegisterInfo(indexPostModel);
-
 		return "redirect:/";
 	}
 
@@ -46,7 +41,6 @@ public class IndexController {
 	public String complete(Model model) {
 		return "complete";
 	}
-
 
 
 }

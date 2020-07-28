@@ -7,6 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sysenc.portal.model.EngineerInformation;
 import com.sysenc.portal.repository.EngineerInformationRepository;
 import com.sysenc.portal.view.IndexPostModel;
+import org.thymeleaf.util.DateUtils;
+
+import java.sql.Date;
+import java.text.DateFormatSymbols;
+import java.time.LocalDate;
 
 @Service
 public class IndexService {
@@ -14,7 +19,7 @@ public class IndexService {
 	@Autowired
 	private EngineerInformationRepository engineerInformationRepository;
 
-	@Transactional(readOnly = false)
+	@Transactional
 	public void insertRegisterInfo(IndexPostModel postModel) {
 		EngineerInformation engineerInformation = new EngineerInformation();
 		engineerInformation.setFullName(postModel.getName());
@@ -24,6 +29,7 @@ public class IndexService {
 		engineerInformation.setPhoneNumber(postModel.getPhoneNumber());
 		engineerInformation.setSkill(postModel.getSkill());
 		engineerInformation.setComment(postModel.getComment());
+		engineerInformation.setRegisterDate(LocalDate.now().toString());
 
 		engineerInformationRepository.save(engineerInformation);
 	}
